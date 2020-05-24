@@ -26,7 +26,10 @@ app.use(session({
   secret: "capture_email" + Math.random(),
   resave: true,
   saveUninitialized: true,
-  store: new MemoryStore()
+  maxAge: 86400000,
+  store: new MemoryStore({
+    checkPeriod:86400000
+  })
 }));
 app.use(passport.initialize());
 app.use(passport.session());
