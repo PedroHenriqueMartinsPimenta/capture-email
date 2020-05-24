@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require("express-session");
+var MemoryStore = require("memorystore")(session);
 var flash = require('connect-flash');
 var passport = require('passport');
 require("./config/auth")(passport);
@@ -25,10 +26,7 @@ app.use(session({
   secret: "capture_email" + Math.random(),
   resave: true,
   saveUninitialized: true,
-  cookie:{
-    secure:  true,
-    maxAge: 60000
-  }
+  store: new MemoryStore()
 }));
 app.use(passport.initialize());
 app.use(passport.session());
