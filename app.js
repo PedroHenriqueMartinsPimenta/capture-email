@@ -24,7 +24,11 @@ var app = express();
 app.use(session({
   secret: "capture_email" + Math.random(),
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
+  cookie:{
+    secure:  true,
+    maxAge: 60000
+  }
 }));
 app.use(passport.initialize());
 app.use(passport.session());
