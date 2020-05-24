@@ -22,7 +22,7 @@ var app = express();
 
 //Config session
 app.use(session({
-  secret: "capture_email5434635476",
+  secret: "capture_email" + Math.random(),
   resave: true,
   saveUninitialized: true
 }));
