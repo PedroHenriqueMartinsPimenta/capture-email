@@ -1,0 +1,21 @@
+<%- include('content/header')%>
+<%- include('content/nav')%>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/recover/code/<%= email%>" method="post">
+                            <label for="code">Informe o codigo que recebeu em seu E-mail</label>
+                            <input type="number" name="code" id="code" class="form-control" required>
+                            
+                            <input type="submit" value="Enviar" class="btn btn-success mt-2">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<%- include('content/footer')%>

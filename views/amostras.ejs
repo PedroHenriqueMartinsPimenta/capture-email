@@ -1,0 +1,39 @@
+<%- include('content/header')%>
+<%- include('content/nav')%>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <a href="/user/amostras/add" class="btn btn-success mt-2 mb-2" style="float: right;">Criar nova</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="overflow: auto;">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Link para amostra</th>
+                        <th scope="col">Remover</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <%
+                            amostras.forEach(function(amostra){
+                                %>
+                                <tr>
+                                    <th scope="row"><%= amostra.titulo%></th>
+                                    <td><a href="/amostra/<%= amostra._id%>" target="_blank">https://captureemail.herokuapp.com/amostra/<%= amostra._id%></a></td>
+                                    <td><a href="/user/amostras/delete/<%= amostra._id%>" class="btn btn-danger">Remover</a></td>
+                                  </tr>
+                                <%
+                            });
+                        %>
+                      
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</main>
+<%- include('content/footer')%>

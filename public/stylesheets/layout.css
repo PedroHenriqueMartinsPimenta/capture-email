@@ -1,0 +1,305 @@
+	.banner{
+			position: relative;
+			top: 0px;
+			height: 400px;
+			background-image: url('/images/banner-1.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			z-index: -1;
+			background-attachment: fixed;
+		}
+		.hide{
+			animation:hide 1.5s;
+		}
+		.show{
+			animation:show 1.5s;
+		}
+		@keyframes hide{
+			0%{
+				opacity: 1;
+
+			}
+			10%{
+				opacity: 0.9;
+				
+			}
+			20%{
+				opacity: 0.8;
+				
+			}
+			30%{
+				opacity: 0.7;
+				
+			}
+			40%{
+				opacity: 0.6;
+				
+			}
+			50%{
+				opacity: 0.5;
+				
+			}
+			60%{
+				opacity: 0.4;
+				
+			}
+			70%{
+				opacity: 0.3;
+				
+			}
+			80%{
+				opacity: 0.2;
+				
+			}
+			90%{
+				opacity: 0.1;
+				
+			}
+			100%{
+				opacity: 0;
+				
+			}
+		}
+		@keyframes show{
+			0%{
+				opacity: 0;
+
+			}
+			10%{
+				opacity: 0.1;
+				
+			}
+			20%{
+				opacity: 0.2;
+				
+			}
+			30%{
+				opacity: 0.3;
+				
+			}
+			40%{
+				opacity: 0.4;
+				
+			}
+			50%{
+				opacity: 0.5;
+				
+			}
+			60%{
+				opacity: 0.6;
+				
+			}
+			70%{
+				opacity: 0.7;
+				
+			}
+			80%{
+				opacity: 0.8;
+				
+			}
+			90%{
+				opacity: 0.9;
+				
+			}
+			100%{
+				opacity: 1;
+				
+			}
+		}
+		.contato{
+			position: absolute;
+			top: 30px;
+			right: 10px;
+			margin: 0 auto;
+			border-radius: 40px;
+			z-index: 9999
+		}
+		.logo{
+			position: absolute;
+			padding: 20px;
+			top: 5px;
+			left: 15px;
+			font-size: 30px;
+			color:rgba(90,30,30,1);
+			text-decoration-style: solid;
+		}
+		.bar{
+			position: fixed;
+			top: 0px;
+			height: 100px;
+			z-index: 9999;
+			box-shadow: 1px 5px 5px 1px rgba(0,0,0,0.5)
+		}
+		.center{
+			position: relative;
+			top: 50.3%;
+			text-align: center;
+			font-size: 50px;
+			color: rgba(230,230,230,1);
+			padding: 10px;
+			background-color: rgba(90,30,30,1)
+		}
+		main{
+			position: relative;
+			top: 20px;
+			margin-bottom: 50px;
+		}
+		.menu{
+			position: absolute;
+			top: 30%;
+			right: 100px
+		}
+		.contatoHambuguer{
+			display: none;
+		}
+		footer{
+			position: relative;
+			width: 100%;
+			min-height: 300px;
+			background-color: rgba(15, 15, 15, 1);
+			border-top: 5px solid rgba(90,90,240);
+			text-align: center
+		}
+		.item-footer{
+			max-width: 320px;
+			width: 97%;
+			margin:10px 0px 0px 10px; 
+			height: 280px;
+			display: inline-block;
+			text-align: center;
+			border-right: 1px solid white;
+
+		}
+		.item-footer[width <= 400]{
+			border:none;
+		}
+		.item-footer img{
+			margin-top: 10px;
+		}
+		.item-footer a{
+			color:white;
+		}
+		.item-footer-desc{
+			height: 200px;
+			width: 300px;
+			float: right;
+			display: inline-block;
+			text-align: right;
+			background-color: rgba(90,90,240);
+			border-radius: 0px 0px 0px 5px
+		}
+		.item-footer-desc img{
+			display: inline-block;
+			width: 23px;
+			margin-top: 30px;
+			margin-right: 5px;
+		}
+		.item-footer-desc p{
+			position: relative;
+			top:50%;
+			right: 10px;
+			color:white;
+		}
+		.info{
+			position: relative;
+			width: 80%;
+			padding: 20px;
+			margin: 0 auto;
+		}
+		.title_conteudo{
+			font-size: 20px;
+			font-weight: bold;
+			padding: 10px;
+			color: rgba(90,30,30,1);
+			border-bottom: 2px solid  rgba(90,30,30,1);
+			display: inline-block;
+		}
+		.info .mensagem{
+			color: rgba(20,20,20,0.8);
+			width: 50%;
+			padding: 10px
+		}
+		hr{
+			position: relative;
+			left: 5%;
+			top: 20px;
+			margin-bottom: 30px;
+		}
+		.midia_left{
+			width: 40%;
+			position: relative;
+			left: 80%;
+			top: -100px;
+		}
+		.midia_right{
+			position: absolute;
+			top: 0px;
+			left: 1%;
+			height: 100%;
+			box-shadow: 1px 1px 10px 1px rgba(20, 20, 20, 0.5);
+			border-radius: 3px;
+		}
+		@media screen and (max-width: 400px){
+		.logo{
+			top: -10px;
+			left: 0px;
+			font-size: 20px
+		}
+		.contato{
+			display: none
+		}
+		.bar{
+			height: 60px;
+		}
+		#btn-bar{
+			position: absolute;
+			right: -95px;
+			top: -10px;
+		}
+		#navbarSupportedContent{
+			position: fixed;
+			top: 60px;
+			left: 0px;
+			background-color: rgb(248, 249, 250);
+			width: 100%;
+			height: 100%;
+		}
+		#navbarSupportedContent li{
+			width: 95%;
+			margin-left: 5px;
+			border-bottom: 0.5px solid rgba(15, 15, 15, 0.4);
+		}
+
+		.contatoHambuguer{
+			margin-top: 10px;
+			display: block;
+		}
+		.center{
+			top: 65%;
+			font-size: 25px;
+		}
+		.info{
+			width: 100%;
+		}
+		.info .mensagem{
+			color: rgba(20,20,20,0.8);
+			width: 100%;
+			font-size: 13px;
+			padding: 3px;
+		}
+		.midia_left{
+			width: 100%;
+			position: relative;
+			left: 50%;
+			top: 20px;
+			transform: translateX(-50%);
+		}
+		.midia_right{
+			width: 100%;
+			position: relative;
+			left: 50%;
+			top: 20px;
+			transform: translateX(-50%);
+		}
+
+	}

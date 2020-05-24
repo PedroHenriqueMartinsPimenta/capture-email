@@ -1,0 +1,80 @@
+<%
+	if(autor){
+		%>
+		<footer>
+			<div class="item-footer">
+				<img src="/images/icon_local.png" width="80px" align="center"><br><br>
+				<a href="#" target="_blank">Local</a>
+			</div>
+			<div class="item-footer">
+				<img src="/images/icon_telefone.png" width="80px" align="center"><br><br>
+				<a href="tel:<%= autor.numero%>"><%= autor.numero%></a>
+			</div>
+			<div class="item-footer">
+				<img src="/images/icon_email.png" width="80px" align="center"><br><br>
+				<a href="mailto:<%= autor.email%>"><%= autor.email%></a>
+			</div>
+				<div class="item-footer-desc tel">
+						<a href="<%= autor.facebook%>"><img src="/images/icon_facebook.png"></a>
+						<a href="<%= autor.intagram%>"><img src="/images/icon_instagram.png"></a>
+						<a href="<%= autor.youtube%>"><img src="/images/icon_youtube.png"></a>
+						<a href="<%= autor.twitter%>"><img src="/images/icon_twitter.png"></a>
+						<a href="<%= autor.pinterest%>"><img src="/images/icon_printer.png"></a>
+						<p>© Todos os direitos reservados.</p>
+				</div>
+		
+		</footer>
+		<%
+	}else{
+%>
+<footer>
+	<div class="item-footer">
+		<img src="/images/icon_local.png" width="80px" align="center"><br><br>
+		<a href="#" target="_blank">Local</a>
+	</div>
+	<div class="item-footer">
+		<img src="/images/icon_telefone.png" width="80px" align="center"><br><br>
+		<a href="tel:(88) 99491-8261">(88) 99491-8261</a>
+	</div>
+	<div class="item-footer">
+		<img src="/images/icon_email.png" width="80px" align="center"><br><br>
+		<a href="mailto:trydeveloper70@gmail.com">trydeveloper70@gmail.com</a>
+	</div>
+		<div class="item-footer-desc tel">
+				<a href="#"><img src="/images/icon_facebook.png"></a>
+				<a href="#"><img src="/images/icon_instagram.png"></a>
+				<a href="#"><img src="/images/icon_youtube.png"></a>
+				<a href="#"><img src="/images/icon_twitter.png"></a>
+				<a href="#"><img src="/images/icon_printer.png"></a>
+				<p>© Todos os direitos reservados.</p>
+		</div>
+
+</footer>
+<%
+	}
+%>
+<script type="text/javascript">
+	var click = 0;
+	$("#navbarDropdown").click(function(){
+		if (click == 0) {
+			$('.dropdown-menu').fadeIn('fast');
+			click = 1;
+		}else{
+			$('.dropdown-menu').fadeOut('fast');
+			click = 0;
+		}
+	});
+	var btn_bar = 0;
+	$('#btn-bar').click(function(){
+		if (btn_bar == 0) {
+			$('#navbarSupportedContent').fadeIn('fast');
+			btn_bar = 1;
+		}else{
+			$('#navbarSupportedContent').fadeOut('fast');
+			btn_bar = 0;
+		}
+		
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<%-include('content/header')%>
+<%-include('content/nav')%>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/user/edit" method="POST" class="col-md-6" style="margin: 0 auto;">
+                            <label for="nome">Nome</label>
+                            <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome" required value="<%= dados.nome%>">
+        
+                            <label for="sobrenome">Sobrenome</label>
+                            <input type="text" name="sobrenome" id="sobrenome" class="form-control" placeholder="Sobrenome" required value="<%= dados.sobrenome%>">
+                            
+                            <label for="email">E-mail</label>
+                            <input type="email" name="email" id="email" required placeholder="example@exemple.com" class="form-control" value="<%= dados.email%>">
+
+                            <label for="numero">Numero</label>
+                            <input type="tel" name="numero" id="numero" class="form-control" placeholder="(99) 99999-9999" required value="<%= dados.numero%>">
+
+                            <label for="facebook">Link Facebook (opcional)</label>
+                            <input type="url" name="facebook" id="facebook" class="form-control" placeholder="https://facebook.com/exemplo"  value="<%= dados.facebook%>">
+
+                            <label for="instagram">Link instagram (opcional)</label>
+                            <input type="url" name="instagram" id="instagram" placeholder="https://instagram.com/exemplo" class="form-control" value="<%= dados.instagram%>">
+
+                            <label for="youtube">Link youtube (opcional)</label>
+                            <input type="url" name="youtube" id="youtube" placeholder="https://youtube.com/exemplo" class="form-control" value="<%= dados.youtube%>">
+
+                            <label for="twitter">Link twitter (opcional)</label>
+                            <input type="url" name="twitter" id="twitter" placeholder="https://twitter.com/exemplo" class="form-control" value="<%= dados.twitter%>">
+
+                            <label for="pinterest">Link pinterest (opcional)</label>
+                            <input type="url" name="pinterest" id="pinterest" placeholder="https://pinterest.com/exemplo" class="form-control" value="<%= dados.pinterest%>">
+                            
+                            <label for="nicho">Nicho</label>
+                            <select name="nicho" id="nicho" class="form-control" required>
+                                <%
+                                    categorias.forEach(function(categoria){
+                                        %>
+                                            <option value="<%= categoria._id%>"><%= categoria.nome%></option>
+                                        <%
+                                    })
+                                %>
+                            </select>
+                            <script>
+                                var categoria = "<%= dados.categoria%>";
+                                document.querySelector('select').value = categoria;
+                            </script>
+                            
+                            <input type="submit" value="Atualiar" class="btn btn-success mt-2">
+                        </form>
+                    </div>
+                </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <h2 class="ml-3">Alterar senha</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/user/password" method="post" class="col-md-6" style="margin: 0 auto;">
+                        <label for="senha">Atual senha</label>
+                        <input type="password" name="senha" id="senha" class="form-control">
+
+                        <label for="newsenha">Nova senha</label>
+                        <input type="password" name="newsenha" id="newsenha" class="form-control">
+
+                        <input type="submit" value="Atualizar" class="btn btn-success mt-2">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+<%-include('content/footer')%>

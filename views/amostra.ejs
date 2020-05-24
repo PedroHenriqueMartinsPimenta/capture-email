@@ -1,0 +1,70 @@
+<%- include('content/header')%>
+<%- include('content/nav')%>
+<main class="col-12">
+	<div class="col-11">
+		<div class="info">
+		<div align="right">
+			<div class="title_conteudo">
+				<%= amostra.titulo%>
+			</div>
+			<div class="mensagem" align="justify">
+                <%= amostra.descricao%>
+				<hr>
+            <button type="button" class="btn btn-success col-12" onclick="modalShow()">
+                <b><%= amostra.button_text%></b>
+              </button>
+			</div>			
+		</div>
+
+			<img class="midia_right" src="<%= amostra.image%>">
+			
+		</div>
+        <hr>
+</div>
+  <!-- Modal -->
+  <div class="modal" style="top:80px;" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <form action="/amostra/send/<%= amostra._id%>/<%= amostra.usuario%>" method="POST">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Receber pelo E-mail</h5>
+        </div>
+        <div class="modal-body">
+          <label for="email">E-mail</label>
+            <input type="email" name="email" id="email" class="form-control" placeholder="example@example.com">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="modalClose()">Cancelar</button>
+          <button type="submit" class="btn btn-success">Enviar</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="col-12 fundo">
+
+</div>
+<style>
+    .fundo{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        background-color: rgba(20, 20, 20, 0.5);
+        z-index: 999;
+        display: none;
+    }
+</style>
+<script>
+    function modalShow(){
+        $('.modal').fadeIn('fast');
+        $('.fundo').fadeIn('fast');
+    }
+    function modalClose(){
+        $('.modal').fadeOut('fast');
+        $('.fundo').fadeOut('fast');
+    }
+</script>
+<%- include('content/footer')%>

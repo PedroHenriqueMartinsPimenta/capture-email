@@ -1,0 +1,84 @@
+<%- include('content/header')%>
+<%- include('content/nav')%>
+<style>
+    #box{
+        height: 150px;
+    }
+    #box span{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: bolder;
+        text-align: center;
+    }
+</style>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Bem vindo</h1>
+                <p>Envie até 300 emails por dia: <a href="https://app.sendinblue.com/account/login" target="_blank">Acessar</a></p>
+                <div class="btn btn-success col-md-3 mb-2" id="box">
+                    <span><%= emails.length%> links <br>de download gerado</span> 
+                </div>
+
+                <div class="btn btn-success col-md-3 mb-2" id="box">
+                    <%
+                        var emailsUnique = "";
+                        var emailUniqueArray = [];
+                        emails.forEach(function(email){
+                            if(!emailsUnique.includes(email.email)){
+                                emailsUnique += email.email;
+                                emailUniqueArray.push(email);
+                            }
+                        });
+                    %>
+                    <span><%= emailUniqueArray.length%><br>E-mails</span> 
+                </div>
+                
+                <div class="btn btn-success col-md-3 mb-2" id="box" id="download" onclick="download()">
+                    <span>Baixar E-mails em exel</span> 
+                </div>
+                <div style="overflow: auto;" id="table">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Email</th>
+                            <th scope="col">Momento</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                emailUniqueArray.forEach(function(dados){
+                                    %>
+                                    <tr>
+                                        <th scope="row"><%= dados.email%></th>
+                                        <td><%= dados.momento%></td>
+                                    </tr>
+                                    <%
+                                });
+                            %>
+                        
+                        </tbody>
+                    </table>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function download(){
+                var tabela = $("#table").html();
+                var htmlBase64 = btoa(tabela);
+                var link = "data:application/vnd.ms-excel;base64," + htmlBase64;
+                var hyperlink = document.createElement("a");
+                hyperlink.download = "E-mails de " + Date.now();
+                hyperlink.href = link;
+                hyperlink.style.display = 'none';
+                document.body.appendChild(hyperlink);
+                hyperlink.click();
+                document.body.removeChild(hyperlink);
+        }
+    </script>
+</main>
+<%- include('content/footer')%>

@@ -1,0 +1,21 @@
+<%- include('content/header')%>
+<%- include('content/nav')%>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/recover/edit/senha/<%= email%>" method="post">
+                            <label for="senha">Informe uma nova senha</label>
+                            <input type="password" name="senha" id="senha" class="form-control" required>
+                            
+                            <input type="submit" value="Alterar" class="btn btn-success mt-2">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<%- include('content/footer')%>

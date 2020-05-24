@@ -1,0 +1,118 @@
+<div class="col-12 bar navbar navbar-expand-lg navbar-light bg-light">
+  <%
+    if(amostra){
+      if(amostra.titulo.length > 10){
+      %>
+      <div class="title logo"><%=  amostra.titulo.substring(0, 10) + "..."%></div>      
+      <%
+      }else{
+        %>
+      <div class="title logo"><%=  amostra.titulo%></div>      
+      <%
+      }
+    }else{
+      %>
+      <div class="title logo"><b>Capture</b> Emails </div>
+      <%
+    }
+  %>
+<div class="col-9 menu">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="btn-bar">
+            <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <%
+        if(user){
+          %>
+          <li class="nav-item">
+            <a class="nav-link" href="/user">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/amostras">Suas amostras</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/account">Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Sair</a>
+          </li>
+          <%
+        }else{
+          %>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/add/user">Cadastre-se</a>
+          </li>
+          <%
+        }
+      %>
+    </ul>
+    <%
+      if(autor){
+        %>
+          <a href="mailto:<%= autor.email%>"><button class="btn btn-success col-12 contatoHambuguer">Contato</button></a>
+        <%
+      }else{
+        %>
+          <a href="#"><button class="btn btn-success col-12 contatoHambuguer">Contato</button></a>
+        <%
+      }
+    %>
+  </div>
+</div>
+<%
+  if(autor){
+    %>
+      <a href="mailto:<%= autor.email%>"><button class="btn btn-success col-2 contato">Contato</button></a>
+    <%
+  }else{
+    %>
+    <a href="#"><button class="btn btn-success col-2 contato">Contato</button></a>
+    <%
+  }
+%>
+</div>
+
+</div>
+
+
+<%
+if(amostra){
+  %>
+  <div class="center col-12"><b><%= amostra.titulo%></b></div>   
+  <%
+}else{
+  %>
+  <div class="center col-12"><b>Captura de email</b></div>
+  <%
+}
+%>
+<%
+	if(message_error != ""){
+		%>
+		<div class="alert alert-danger">
+			<%=message_error%>
+		</div>
+		<%
+	}
+	if(message_success != ""){
+		%>
+		<div class="alert alert-success">
+			<%=message_success%>
+		</div>
+		<%
+	}
+	if(error != ""){
+		%>
+		<div class="alert alert-danger">
+			<%=error%>
+		</div>
+		<%
+	}
+%>
