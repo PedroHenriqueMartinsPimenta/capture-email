@@ -7,7 +7,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="keywords" content="Captura de emails gratis, captura de emails gratuito, capturar emails como afiliado, capturar email gratis, capturar email online, captura de email">
 	<meta charset="utf-8">
-	<title>Home</title>
+	<%
+		if(amostra){
+			%>
+			<title><%= amostra.titulo%></title>
+			<%
+		}else{
+			%>
+			<title>Home</title>
+			<%
+		}
+	%>
 	<script type="text/javascript" src="/jquery-ui-1.12.1/jquery-3.3.1.js"></script>
 	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/layout.css">
